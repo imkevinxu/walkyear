@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ username }}'s {{ super() }}{% endblock %}
+{% block meta_description %}{% endblock %}
+
+{% block extra_head %}{% endblock %}
+
+{% block content %}
+
+<div class="non-semantic-protector">
+    <h1 class="ribbon">
+        <strong class="ribbon-content">{{ username }}</strong>
+    </h1>
+</div>
+
+<div id="certificate" class="row">
+    <div class="twelve columns">
+
+        <h3>Certified Walker 2013</h3>
+
+        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+
+        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="I'm a Certified Walker for 2013 http://walkyear.com/{{username}}" data-via="walkyear" data-size="large" data-related="imkevinxu" data-count="none">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}{% endblock %}

@@ -16,6 +16,21 @@ from walkyear_app.models import *
 from walkyear_app.model_forms import *
 from walkyear_app.forms import *
 
-#@login_required
 def index(request):
+    walkers = Walker.objects.all()
     return render(request, "index.html", locals())
+
+def create(request):
+    if request.POST and "username" in request.POST:
+        username = request.POST["username"]
+        walker, created = Walker.objects.get_or_create(username=username)
+        if created:
+            walker.save()
+
+        return redirect(show, username=username)
+    return index(request)
+
+def show(request, username):
+    walker = Walker.objects.get(username=username)
+
+    return render(request, "show.html", locals())

@@ -1,7 +1,15 @@
 ;(function ($, window, undefined) {
 
   /* Javascript masterminded by Kevin Xu <kevin@imkevinxu.com> */
-
+  $('#username_form').submit(function() {
+    var input = $('input#username');
+    if (input.val()) {
+      return true;
+    } else {
+      input.addClass("error animated shake");
+      return false;
+    }
+  });
 
 
 
