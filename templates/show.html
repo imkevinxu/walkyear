@@ -17,14 +17,50 @@
 
         <h3>Certified Walker 2013</h3>
 
-        <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote>
+        <div class="row">
+            <div class="six columns">
+                <img src="http://farm1.staticflickr.com/13/14900584_05d7b5b5c6_b.jpg" id="walkingroad">
+            </div>
 
-        <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+            <div class="six columns">
 
-        <a href="https://twitter.com/share" class="twitter-share-button" data-text="I'm a Certified Walker for 2013 http://walkyear.com/{{username}}" data-via="walkyear" data-size="large" data-related="imkevinxu" data-count="none">Tweet</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                <p><strong>{{ username }}</strong> is a certified walker in the Walk Year registry for 2013. I have committed to walking more each day to live a healthier life and be more awesome. </p>
+
+                <blockquote>Researchers found that walking briskly for 30 minutes every day lowers your odds ... of heart disease, diabetes, and stroke. <a href="http://articles.cnn.com/2008-06-12/health/healthmag.walking.health_1_metabolic-syndrome-reduction-in-heart-disease-risk-postmenopausal-women?_s=PM:HEALTH" target="_blank">[citation]</a></blockquote>
+
+                <p>
+                    <strong>Participate</strong> in the race.
+                    <strong>Try</strong> out the <a href="http://www.walkingwizard.org/" target="_blank">Walking Wizard</a>.<br/>
+                    <strong>Share</strong> your Walk Year certificate.
+                </p>
+
+                <a href="https://twitter.com/share" class="twitter-share-button" data-text="I'm a Certified Walker for 2013 http://walkyear.com/{{username}}" data-via="walkyear" data-size="large" data-related="imkevinxu" data-count="none">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+            </div>
+        </div>
 
     </div>
+</div>
+
+<div id="race" class="row">
+    <form action="{% url update %}" method="post" class="six columns centered">{% csrf_token %}
+
+        <label for="minutes">Today I walked:</label>
+        <div class="row collapse">
+            <div class="nine mobile-three columns">
+                <input type="text" name="minutes" id="minutes" placeholder="30">
+            </div>
+            <div class="three mobile-one columns">
+                <span class="postfix">minutes</span>
+            </div>
+        </div>
+
+        <input type="hidden" name="username" value="{{ username }}">
+
+        <input class="large success button" type="submit" value="I walked today!" />
+
+    </form>
 </div>
 
 {% endblock %}

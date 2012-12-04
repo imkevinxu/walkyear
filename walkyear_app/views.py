@@ -11,10 +11,13 @@ from coffin.shortcuts import render_to_response, get_object_or_404, render, \
     redirect
 from django.template import loader, RequestContext
 from django.views.decorators.csrf import csrf_exempt
+from django.core.exceptions import ObjectDoesNotExist
 
 from walkyear_app.models import *
 from walkyear_app.model_forms import *
 from walkyear_app.forms import *
+
+reserved = ["login", "logout", "create", "update"]
 
 def index(request):
     walkers = Walker.objects.all()
@@ -23,6 +26,9 @@ def index(request):
 def create(request):
     if request.POST and "username" in request.POST:
         username = request.POST["username"]
+        if username in reserved:
+            return redirect(index)
+
         walker, created = Walker.objects.get_or_create(username=username)
         if created:
             walker.save()
@@ -31,6 +37,15 @@ def create(request):
     return index(request)
 
 def show(request, username):
-    walker = Walker.objects.get(username=username)
+    try:
+        walker = Walker.objects.get(username=username)
+        return render(request, "show.html", locals())
+    except ObjectDoesNotExist:
+        return redirect(index)
 
-    return render(request, "show.html", locals())
+def update(request):
+    pass
+
+
+
+

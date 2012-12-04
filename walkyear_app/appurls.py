@@ -16,5 +16,6 @@ urlpatterns = patterns('walkyear_app.views',
     url(r'^logout/$', logout, kwargs=dict(next_page='/'), name='logout'),
 
     url(r'^create/$', 'create', name='create'),
+    url(r'^update/$', 'update', name='update'),
     url(r'^(?P<username>\w+)$', 'show', name='show'),
 )

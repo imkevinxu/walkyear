@@ -11,13 +11,14 @@
 
         <center>
             <h1 id="tagline">Are you a walker?</h1>
+            <h3 id="byline">Make walking your 2013 new year's resolution and<br/>be a part of the Walk Year race.</h3>
 
             <form action="{% url create %}" method="post" id="username_form">{% csrf_token %}
 
                 <label for="username">http://walkyear.com/</label>
                 <input type="text" name="username" id="username" placeholder="username">
 
-                <input class="large success button" type="submit" value="Yes I walk!" />
+                <input class="large success button" type="submit" value="Yes I will walk!" />
 
             </form>
 

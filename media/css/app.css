@@ -74,11 +74,19 @@ body {
 h1#tagline {
     margin-top: 100px;
     font-family: 'Buenard', serif;
-    font-size: 10rem;
+    font-size: 9rem;
+}
+
+h3#byline {
+    padding-top: 10px;
+    font-size: 3.2rem;
+    line-height: 4rem;
+    color: #333;
+    font-weight: 300;
 }
 
 form#username_form {
-    margin: 80px 0;
+    margin: 60px 0;
 }
 
 form#username_form label {
@@ -121,16 +129,27 @@ input.error:-moz-placeholder { color: #E94158; }
 #certificate {
     border: 1px solid #ccc;
     background-image: url(http://subtlepatterns.com/patterns/lightpaperfibers.png);
-    padding: 1.5em 3em;
+    padding: 1.5em 3em 3em;
+    -moz-box-shadow:    3px 3px 6px 0px #A0A0A0;
+    -webkit-box-shadow: 3px 3px 6px 0px #A0A0A0;
+    box-shadow:         3px 3px 6px 0px #A0A0A0;
 }
 
 #certificate h3 {
     font-family: 'Buenard', serif;
     font-size: 3.5rem;
     text-align: center;
+    margin-bottom: 25px;
 }
 
+#race {
+    margin: 50px 0;
+}
 
+#race label {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
 
 
 
