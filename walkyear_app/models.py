@@ -15,6 +15,7 @@ class Base(models.Model):
 
 class Walker(Base):
     username = models.CharField(blank=True, null=True, max_length=255)
+    minutes = models.IntegerField(blank=True, null=True)
 
     def __unicode__(self):
         return u'Walker: %s' % (self.username)

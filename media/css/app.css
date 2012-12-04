@@ -151,6 +151,12 @@ input.error:-moz-placeholder { color: #E94158; }
     margin-bottom: 10px;
 }
 
+h1#total_minutes {
+    font-family: 'Buenard', serif;
+    font-size: 5rem;
+    margin-bottom: 150px;
+}
+
 
 
 .ribbon {

@@ -63,6 +63,10 @@
     </form>
 </div>
 
+<center>
+    <h1 id="total_minutes">I have walked {% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %} minutes</h1>
+</center>
+
 {% endblock %}
 
 {% block javascript %}{% endblock %}
