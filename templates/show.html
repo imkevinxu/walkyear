@@ -72,7 +72,7 @@
 
         <table>
             {% for walker in walkers %}
-                <tr>
+                <tr {% if walker.username == username %}class="you"{% endif %}>
                     <td width="550px"><a href="/{{ walker.username }}">{{ walker.username }}</a></td>
                     <td><strong>{% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %}</strong></td>
                 </tr>
