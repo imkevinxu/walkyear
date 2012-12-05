@@ -31,6 +31,7 @@ def create(request):
 
         walker, created = Walker.objects.get_or_create(username=username)
         if created:
+            walker.minutes = 0
             walker.save()
 
         return redirect(show, username=username)

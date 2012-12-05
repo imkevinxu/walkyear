@@ -44,45 +44,42 @@
 </div>
 
 <div id="race" class="row">
-    <form action="{% url update %}" method="post" class="six columns centered">{% csrf_token %}
+    <form action="{% url update %}" method="post" class="eight columns centered">{% csrf_token %}
 
-        <label for="minutes">Today I walked:</label>
+        <h1 id="total_minutes">I have walked {{ walker.minutes }} minutes</h1>
+
         <div class="row collapse">
-            <div class="nine mobile-three columns">
-                <input type="text" name="minutes" id="minutes" placeholder="30">
-            </div>
-            <div class="three mobile-one columns">
-                <span class="postfix">minutes</span>
+            <div class="eight columns centered">
+                <div class="six mobile-two columns">
+                    <label for="minutes">Today I walked:</label>
+                </div>
+                <div class="three mobile-one columns">
+                    <input type="text" name="minutes" id="minutes" placeholder="30">
+                </div>
+                <div class="three mobile-one columns">
+                    <span class="postfix">minutes</span>
+                </div>
             </div>
         </div>
 
         <input type="hidden" name="username" value="{{ username }}">
+        <center>
+            <input class="medium success button" type="submit" value="I walked today!" />
+        </center>
 
-        <input class="large success button" type="submit" value="I walked today!" />
-
-    </form>
-</div>
-
-<center>
-    <h1 id="total_minutes">I have walked {% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %} minutes</h1>
-</center>
-
-<div class="row">
-    <div class="eight columns centered">
-
+        <h3>Top walkers</h3>
         <table>
             {% for walker in walkers %}
                 <tr {% if walker.username == username %}class="you"{% endif %}>
-                    <td width="550px"><a href="/{{ walker.username }}">{{ walker.username }}</a></td>
-                    <td><strong>{% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %}</strong></td>
+                    <td width="340px"><a href="/{{ walker.username }}">{{ walker.username }}</a></td>
+                    <td><strong>{{ walker.minutes }}</strong></td>
                 </tr>
             {% endfor %}
         </table>
 
-    </div>
+    </form>
+
 </div>
-
-
 
 {% endblock %}
 

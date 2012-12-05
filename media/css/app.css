@@ -147,23 +147,29 @@ input.error:-moz-placeholder { color: #E94158; }
 }
 
 #race label {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    padding-top: 5px;
 }
 
-h1#total_minutes {
+#race h1#total_minutes {
     font-family: 'Buenard', serif;
     font-size: 5rem;
     margin-top: 50px;
+    text-align: center;
 }
 
-table {
+#race h3 {
+    margin-top: 80px;
+    text-align: center;
+}
+
+#race table {
     font-size: 2rem;
-    margin-bottom: 100px;
+    margin: 0 auto 100px;
 }
 
-table tr.you {
-    background-color: #EFEFEF;
+#race table tr.you {
+    background-color: #EFEFEF !important;
 }
 
 
