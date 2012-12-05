@@ -29,7 +29,7 @@ def create(request):
         if username in reserved:
             return redirect(index)
 
-        walker, created = Walker.objects.get_or_create(username=username, minutes=0)
+        walker, created = Walker.objects.get_or_create(username=username)
         if created:
             walker.save()
 
@@ -39,6 +39,7 @@ def create(request):
 def show(request, username):
     try:
         walker = Walker.objects.get(username=username)
+        walkers = reversed(Walker.objects.order_by("minutes"))
         return render(request, "show.html", locals())
     except ObjectDoesNotExist:
         return redirect(index)
@@ -48,6 +49,8 @@ def update(request):
         username = request.POST["username"]
         try:
             walker = Walker.objects.get(username=username)
+            if walker.minutes == None:
+                walker.minutes = 0
             walker.minutes += int(request.POST["minutes"])
             walker.save()
             return redirect(show, username=username)

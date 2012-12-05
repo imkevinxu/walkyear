@@ -67,6 +67,23 @@
     <h1 id="total_minutes">I have walked {% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %} minutes</h1>
 </center>
 
+<div class="row">
+    <div class="eight columns centered">
+
+        <table>
+            {% for walker in walkers %}
+                <tr>
+                    <td width="550px"><a href="/{{ walker.username }}">{{ walker.username }}</a></td>
+                    <td><strong>{% if walker.minutes == None %}0{% else %}{{ walker.minutes }}{% endif %}</strong></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+</div>
+
+
+
 {% endblock %}
 
 {% block javascript %}{% endblock %}
