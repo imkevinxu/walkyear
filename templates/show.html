@@ -44,7 +44,7 @@
 </div>
 
 <div id="race" class="row">
-    <form action="{% url update %}" method="post" class="eight columns centered">{% csrf_token %}
+    <form action="{% url update %}" method="post" id="minutes_form" class="eight columns centered">{% csrf_token %}
 
         <h1 id="total_minutes">I have walked {{ walker.minutes }} minutes</h1>
 

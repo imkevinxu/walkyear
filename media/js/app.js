@@ -11,6 +11,20 @@
     }
   });
 
+  $('#minutes_form').submit(function() {
+    var input = $('input#minutes');
+    if (isNumber(input.val())) {
+      return true;
+    } else {
+      input.addClass("error animated shake");
+      return false;
+    }
+  });
+
+  function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
 
 
 

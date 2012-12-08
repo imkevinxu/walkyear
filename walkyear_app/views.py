@@ -25,7 +25,7 @@ def index(request):
 
 def create(request):
     if request.POST and "username" in request.POST:
-        username = request.POST["username"]
+        username = request.POST["username"].lower()
         if username in reserved:
             return redirect(index)
 
@@ -39,7 +39,7 @@ def create(request):
 
 def show(request, username):
     try:
-        walker = Walker.objects.get(username=username)
+        walker = Walker.objects.get(username=username.lower())
         walkers = reversed(Walker.objects.order_by("minutes"))
         return render(request, "show.html", locals())
     except ObjectDoesNotExist:
@@ -47,7 +47,7 @@ def show(request, username):
 
 def update(request):
     if request.POST and "username" in request.POST:
-        username = request.POST["username"]
+        username = request.POST["username"].lower()
         try:
             walker = Walker.objects.get(username=username)
             if walker.minutes == None:
