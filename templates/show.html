@@ -47,6 +47,7 @@
     <form action="{% url update %}" method="post" id="minutes_form" class="eight columns centered">{% csrf_token %}
 
         <h1 id="total_minutes">I have walked {{ walker.minutes }} minutes</h1>
+        <h6>That's the length of walking around <em>{% if walker.minutes >= 300 %}a long hike{% elif walker.minutes >= 100 %}to the next city{% elif walker.minutes >= 10 %}one large park{% else %}one track course{% endif %}</em></h6>
 
         <div class="row collapse">
             <div class="eight columns centered">

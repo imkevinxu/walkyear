@@ -163,6 +163,12 @@ input.error:-moz-placeholder { color: #E94158; }
     text-align: center;
 }
 
+#race h6 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+}
+
 #race table {
     font-size: 2rem;
     margin: 0 auto 100px;
